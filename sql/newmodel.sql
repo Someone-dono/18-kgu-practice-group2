@@ -7,7 +7,7 @@ USE Sale;
 /*
 таблица базы данных продаж каталог
 */
-CREATE TABLE katalog (
+CREATE TABLE models (
     model INTEGER AUTO_INCREMENT PRIMARY KEY,  # номер модели
     denomination VARCHAR(30), # наименование
     color varchar(11), # цвет
