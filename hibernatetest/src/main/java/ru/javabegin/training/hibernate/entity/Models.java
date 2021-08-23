@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 public class Models implements Serializable {
     @Id
-    @GeneratedValue(stradegy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long model;
     private String denomination;
     private String color;
