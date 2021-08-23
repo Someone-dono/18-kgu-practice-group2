@@ -1,8 +1,8 @@
-CREATE DATABASE Sale;
+CREATE DATABASE sale;
 /*
 создается база данныйх Sale
 */
-USE Sale;
+USE sale;
 
 /*
 таблица базы данных продаж каталог
