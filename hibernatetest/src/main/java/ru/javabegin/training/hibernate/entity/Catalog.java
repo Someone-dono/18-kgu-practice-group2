@@ -17,16 +17,13 @@ public class Catalog implements Serializable {
     @JoinColumn(name = "ItemNumber")
     private Product ItemNumber;
 
-    @Column
     private String presence;
 
-    @Column
     private String descr;
 
     @OneToMany
     @JoinColumn(name = "ServiceNumber")
     private List<AdditionalServices> ServiceNumb;
 
-    @Column
     private double final_price;
 }

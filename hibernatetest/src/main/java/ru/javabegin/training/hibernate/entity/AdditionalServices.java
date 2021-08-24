@@ -16,9 +16,7 @@ public class AdditionalServices implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ServiceNumber;
 
-    @Column
     private String NameOfService;
 
-    @Column
     private float Price;
 }

@@ -48,7 +48,7 @@ create table Product ( /*создание таблицы Product*/
     
     
 CREATE TABLE Catalog (
-	ItemNumber int,
+	ItemNumber int primary key,
 	presence TINYBLOB, # присутствие
 	descr TEXT, # описание
     ServiceNumb int,

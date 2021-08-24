@@ -24,6 +24,5 @@ public class Product implements Serializable {
     @JoinColumn(name = "model")
     private Models modelNumber;
 
-    @Column
     private float Price;
 }

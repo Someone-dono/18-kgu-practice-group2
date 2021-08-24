@@ -16,27 +16,19 @@ public class Models implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long model;
 
-    @Column
     private String denomination;
 
-    @Column
     private String color;
 
-    @Column
     private Integer height;
 
-    @Column
     private Integer width;
 
-    @Column
     private Double volume;
 
-    @Column
     private Double freezer_volume;
 
-    @Column
     private Double refrigerating_chamber_volume;
 
-    @Column
     private Double depth;
 }
