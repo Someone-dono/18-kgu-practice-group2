@@ -16,16 +16,14 @@ public class Catalog implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idCatalog;
 
-    @OneToOne
-    @JoinColumn(name = "ItemNumber")
-    private Product ItemNumber;
+    @OneToMany(mappedBy = "ItemNumber")
+    private List<Product> ItemNumber;
 
     private String presence;
 
     private String descr;
 
-    @OneToMany
-    @JoinColumn(name = "ServiceNumber")
+    @OneToMany(mappedBy = "ServiceNumber")
     private List<AdditionalServices> ServiceNumb;
 
     private double final_price;

@@ -14,14 +14,15 @@ import java.io.Serializable;
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ItemNumber;
+    private long idProduct;
 
-    @OneToOne
-    @JoinColumn(name = "categ")
-    private category CategoryNumber;
+    @ManyToOne
+    private Catalog ItemNumber;
 
-    @OneToOne
-    @JoinColumn(name = "model")
+    @OneToOne(mappedBy = "categoryProduc", fetch = FetchType.LAZY)
+    private Category categoryNumber;
+
+    @OneToOne(mappedBy = "model", fetch = FetchType.LAZY)
     private Models modelNumber;
 
     private float Price;

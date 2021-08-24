@@ -10,10 +10,13 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Table(name = "category")
-public class category implements Serializable {
+public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long categ;
+    private long idCategory;
+
+    @OneToOne(mappedBy = "categoryNumber", fetch = FetchType.LAZY)
+    private Product categoryProduct;
 
     private String namae;
 
