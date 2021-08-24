@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Table(name = "Catalog")
 public class Catalog implements Serializable {
     @Id
     @OneToOne
