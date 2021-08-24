@@ -1,5 +1,6 @@
 package ru.javabegin.training.hibernate.entity;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,12 +11,17 @@ import java.io.Serializable;
 @Getter
 @Setter
 
-public class category implements Serializable {
+public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long categ;
+    private long ItemNumber;
+
+    @OneToOne
+    private category CategoryNumber;
+
+    @OneToOne
+    private Models modelNumber;
 
     @Column
-    private String namae;
-
+    private float Price;
 }
