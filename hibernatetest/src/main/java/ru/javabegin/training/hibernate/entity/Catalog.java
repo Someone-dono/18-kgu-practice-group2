@@ -13,6 +13,9 @@ import java.util.List;
 @Table(name = "Catalog")
 public class Catalog implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idCatalog;
+
     @OneToOne
     @JoinColumn(name = "ItemNumber")
     private Product ItemNumber;
