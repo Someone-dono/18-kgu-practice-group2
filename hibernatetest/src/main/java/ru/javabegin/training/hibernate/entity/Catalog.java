@@ -17,7 +17,7 @@ public class Catalog implements Serializable {
     private long idCatalog;
 
     @OneToMany(mappedBy = "ItemNumber")
-    private List<Product> ItemNumber;
+    private List<Product> ItemNumberProduct;
 
     private String presence;
 
