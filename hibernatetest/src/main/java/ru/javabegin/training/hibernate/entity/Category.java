@@ -13,7 +13,10 @@ import java.io.Serializable;
 public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int categoryProduct;
+    private int idCategory;
+
+    @OneToOne(mappedBy = "categoryNumber", fetch = FetchType.LAZY)
+    private Product categoryProduct;
 
     private String nameCategory;
 

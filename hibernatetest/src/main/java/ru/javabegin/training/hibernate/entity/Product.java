@@ -16,10 +16,10 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int ItemNumber;
 
-    @OneToOne(mappedBy = "categoryProduc", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "categoryProduct", fetch = FetchType.LAZY, targetEntity = Category.class)
     private Category categoryNumber;
 
-    @OneToOne(mappedBy = "model", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "model", fetch = FetchType.LAZY, targetEntity = Models.class)
     private Models modelNumber;
 
     private float Price;
