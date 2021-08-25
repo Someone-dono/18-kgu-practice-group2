@@ -14,10 +14,7 @@ import java.io.Serializable;
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idProduct;
-
-    @ManyToOne
-    private Catalog ItemNumber;
+    private int ItemNumber;
 
     @OneToOne(mappedBy = "categoryProduc", fetch = FetchType.LAZY)
     private Category categoryNumber;

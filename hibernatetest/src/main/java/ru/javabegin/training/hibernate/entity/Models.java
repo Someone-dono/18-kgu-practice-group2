@@ -14,10 +14,7 @@ import java.io.Serializable;
 public class Models implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idModels;
-
-    @OneToOne(mappedBy = "modelNumber", fetch = FetchType.LAZY)
-    private Product model;
+    private int model;
 
     private String denomination;
 
