@@ -8,6 +8,6 @@ public class Start {
     public static void main(String[] args) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        System.out.println(new CategoryHelp().getCategoryList());
+        System.out.println(new CatalogHelp().getCategoryList());
     }
 }
