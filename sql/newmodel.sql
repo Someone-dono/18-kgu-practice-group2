@@ -8,7 +8,8 @@ USE sale;
 таблица базы данных продаж каталог
 */
 CREATE TABLE Models (
-    model INTEGER AUTO_INCREMENT PRIMARY KEY, # номер модели
+    idModels INTEGER AUTO_INCREMENT PRIMARY KEY, # номер модели
+    model INTEGER,
     denomination VARCHAR(30), # наименование
     color varchar(11), # цвет
     height integer, # высота в метрах
@@ -16,34 +17,41 @@ CREATE TABLE Models (
     volume decimal(40, 2), # объем
     freezer_volume decimal(40, 2), # объем морозной камеры
     refrigerating_chamber_volume decimal(40, 2), # объем холодильной камеры
-    depth decimal(40, 2) # глубина
+    depth decimal(40, 2), # глубина 
+    unique(model)
 );
 
 
 
 
 create table AdditionalServices ( /*создание таблицы AdditionalServices*/
-	ServiceNumber integer auto_increment primary key, /*первичный ключ таблицы AdditionalServices*/
+	idAditionalServices integer auto_increment primary key, /*первичный ключ таблицы AdditionalServices*/
+    ServiceNumber integer,
 	NameOfService varchar (30), /*название услуги*/
-	Price float /*цена товара*/
+	Price float, /*цена товара*/
+    unique(ServiceNumber)
 );
 
 /*
 таблица базы данных продаж категория
 */
 CREATE TABLE Category (
-	categoryProduct INTEGER AUTO_INCREMENT PRIMARY KEY,  # категория
-    nameCategory TINYTEXT # наименование
+	idCategory INTEGER AUTO_INCREMENT PRIMARY KEY,  # категория
+    categoryProduct integer,
+    nameCategory TINYTEXT, # наименование
+    unique(categoryProduct)
 );
 
 
 create table Product ( /*создание таблицы Product*/
-	ItemNumber integer auto_increment primary key, /*первичный ключ таблицы Product*/
-	CategoryNumber integer,
+	idProduct integer auto_increment primary key, /*первичный ключ таблицы Product*/
+	ItemNumber integer,
+    CategoryNumber integer,
 	modelNumber integer,
 	FOREIGN KEY(CategoryNumber) REFERENCES  Category(categoryProduct), /*вторичный ключ таблицы Product*/
 	FOREIGN KEY(modelNumber) REFERENCES  Models(model), /*вторичный ключ таблицы Product*/
-	Price float /*цена товара*/
+	Price float, /*цена товара*/
+    unique(ItemNumber)
 );
     
     
