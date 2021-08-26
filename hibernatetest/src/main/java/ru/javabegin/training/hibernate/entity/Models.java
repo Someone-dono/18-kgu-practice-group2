@@ -16,7 +16,7 @@ public class Models implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idModels;
 
-    @OneToOne(mappedBy = "modelNumber", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "modelNumber")
     private Product model;
 
     private String denomination;

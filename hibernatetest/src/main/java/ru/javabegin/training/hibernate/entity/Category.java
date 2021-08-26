@@ -15,7 +15,7 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idCategory;
 
-    @OneToOne(mappedBy = "categoryNumber", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "categoryNumber")
     private Product categoryProduct;
 
     private String nameCategory;

@@ -16,7 +16,10 @@ import static javax.persistence.FetchType.LAZY;
 public class AdditionalServices implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ServiceNumber;
+    private int idAditionalServices;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Catalog ServiceNumber;
 
     private String NameOfService;
 

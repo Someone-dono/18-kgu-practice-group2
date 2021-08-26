@@ -14,12 +14,17 @@ import java.io.Serializable;
 public class Product implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ItemNumber;
+    private int idProduct;
 
-    @OneToOne(mappedBy = "categoryProduct", fetch = FetchType.LAZY, targetEntity = Category.class)
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Catalog ItemNumber;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryProduct")
     private Category categoryNumber;
 
-    @OneToOne(mappedBy = "model", fetch = FetchType.LAZY, targetEntity = Models.class)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "model")
     private Models modelNumber;
 
     private float Price;
