@@ -1,0 +1,27 @@
+package ru.javabegin.training.hibernate.entity;
+
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+import static javax.persistence.FetchType.LAZY;
+
+@Entity
+@Getter
+@Setter
+@Table(name = "AdditionalServices")
+public class AdditionalServices implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idAditionalServices;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Catalog ServiceNumber;
+
+    private String NameOfService;
+
+    private float Price;
+}

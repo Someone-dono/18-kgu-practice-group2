@@ -1,29 +1,29 @@
-CREATE DATABASE Sale;
+CREATE DATABASE sale;
 /*
 создается база данныйх Sale
 */
-USE Sale;
+USE sale;
 
 /*
 таблица базы данных продаж каталог
 */
 CREATE TABLE Models (
-    model INTEGER AUTO_INCREMENT PRIMARY KEY,  # номер модели
+    model INTEGER AUTO_INCREMENT PRIMARY KEY, # номер модели
     denomination VARCHAR(30), # наименование
     color varchar(11), # цвет
     height integer, # высота в метрах
     width integer, # ширина в метрах
-    volume decimal(4, 2), # объем
-    freezer_volume decimal(4, 2), # объем морозной камеры
-    refrigerating_chamber_volume decimal(4, 2), # объем холодильной камеры
-    depth decimal(4, 2) # глубина
+    volume decimal(40, 2), # объем
+    freezer_volume decimal(40, 2), # объем морозной камеры
+    refrigerating_chamber_volume decimal(40, 2), # объем холодильной камеры
+    depth decimal(40, 2) # глубина
 );
 
 
 
 
 create table AdditionalServices ( /*создание таблицы AdditionalServices*/
-	ServiceNumber int auto_increment primary key, /*первичный ключ таблицы AdditionalServices*/
+	ServiceNumber integer auto_increment primary key, /*первичный ключ таблицы AdditionalServices*/
 	NameOfService varchar (30), /*название услуги*/
 	Price float /*цена товара*/
 );
@@ -31,28 +31,29 @@ create table AdditionalServices ( /*создание таблицы AdditionalSe
 /*
 таблица базы данных продаж категория
 */
-CREATE TABLE category (
-    categ INTEGER AUTO_INCREMENT PRIMARY KEY,  # номер товара
-    namae TINYTEXT # наименование
+CREATE TABLE Category (
+	categoryProduct INTEGER AUTO_INCREMENT PRIMARY KEY,  # категория
+    nameCategory TINYTEXT # наименование
 );
 
 
 create table Product ( /*создание таблицы Product*/
-	ItemNumber int auto_increment primary key, /*первичный ключ таблицы Product*/
+	ItemNumber integer auto_increment primary key, /*первичный ключ таблицы Product*/
 	CategoryNumber integer,
 	modelNumber integer,
-	FOREIGN KEY(CategoryNumber) REFERENCES  category (categ), /*вторичный ключ таблицы Product*/
-	FOREIGN KEY(modelNumber) REFERENCES  models (model), /*вторичный ключ таблицы Product*/
+	FOREIGN KEY(CategoryNumber) REFERENCES  Category(categoryProduct), /*вторичный ключ таблицы Product*/
+	FOREIGN KEY(modelNumber) REFERENCES  Models(model), /*вторичный ключ таблицы Product*/
 	Price float /*цена товара*/
 );
     
     
 CREATE TABLE Catalog (
-	ItemNumber int,
-	presence TINYBLOB, # присутствие
+	idCatalog integer auto_increment primary key,
+	ItemNumber integer,
+	presence text, # присутствие
 	descr TEXT, # описание
-    ServiceNumb int,
-	final_price DECIMAL(10,2), # итоговая цена
+    ServiceNumb integer,
+	final_price DECIMAL(65,2), # итоговая цена
 	FOREIGN KEY(ItemNumber) REFERENCES  Product (ItemNumber),# номер товара
 	FOREIGN KEY(ServiceNumb) REFERENCES AdditionalServices(ServiceNumber) # номер услуги
 );
